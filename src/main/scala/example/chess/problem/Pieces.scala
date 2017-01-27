@@ -41,8 +41,8 @@ case object Queen extends Piece {
       Math.abs(current.x - x) == Math.abs(current.y - y)
 }
 
-case object Rock extends Piece {
-  override def toString: String = "Rock"
+case object Rook extends Piece {
+  override def toString: String = "Rook"
 
   override def filterCriteria(current: Square, x: Int, y: Int): Boolean =
     current.x == x || current.y == y
