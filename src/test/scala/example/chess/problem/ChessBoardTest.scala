@@ -15,7 +15,7 @@ class ChessBoardTest {
     assert(King.filterCriteria(square, board.x, board.y) == true)
     assert(Queen.filterCriteria(square, board.x, board.y) == true)
     assert(Knight.filterCriteria(square, board.x, board.y) == false)
-    assert(Rock.filterCriteria(square, board.x, board.y) == true)
+    assert(Rook.filterCriteria(square, board.x, board.y) == true)
     assert(Bishop.filterCriteria(square, board.x, board.y) == true)
 
   }
