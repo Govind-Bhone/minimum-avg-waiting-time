@@ -1,4 +1,4 @@
-name := "Merchant's-Guide-to-the-Galaxy"
+name := "chess-problem-solutions"
 
 version := "0.1"
 
