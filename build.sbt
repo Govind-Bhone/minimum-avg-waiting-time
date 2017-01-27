@@ -1,10 +1,12 @@
-name := "chess-problem-solutions"
+name := "Merchant's-Guide-to-the-Galaxy"
 
 version := "0.1"
 
 scalaVersion := "2.10.3"
 
 scalacOptions ++= Seq("-deprecation")
+
+libraryDependencies += "junit" % "junit" % "4.12"
 
 resolvers ++= Seq(
   "Typesafe Snapshots" at "http://repo.typesafe.com/typesafe/snapshots",
