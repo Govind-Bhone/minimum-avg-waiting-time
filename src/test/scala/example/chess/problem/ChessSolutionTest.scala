@@ -1,19 +1,16 @@
 package example.chess.problem
 
-import org.junit.Test
+import org.scalatest.FunSpec
 
 /**
   * Created by govind.bhone on 1/27/2017.
   */
-class ChessSolutionTest {
+class ChessSolutionTest extends FunSpec {
 
-  @Test
-  def check3By3BoardContaining2King1Queen(): Unit = {
-    val solution = ChessSolution.solveChessProblem(ChessBoard(3, 3), List(PieceInfo(King, 2), PieceInfo(Queen, 1)))
-    println(solution.mkString("\n"))
-    assert(solution.size == 4)
-    assert(solution.mkString("\n") ==
-      "*Queen*\n" +
+  describe("chess solution output ") {
+    it("check 3X3 Board containing 2 King 1 Queen") {
+      val solution = ChessSolution.solveChessProblem(ChessBoard(3, 3), List(PieceInfo(King, 2), PieceInfo(Queen, 1)))
+      val resultStr = "*Queen*\n" +
         "***\n" +
         "King*King\n" +
         "\n" +
@@ -27,15 +24,15 @@ class ChessSolutionTest {
         "\n" +
         "King*King\n" +
         "***\n" +
-        "*Queen*\n")
+        "*Queen*\n"
+      assertResult(4)(solution.size)
+      assertResult(resultStr)(solution.mkString("\n"))
+    }
   }
 
-
-  @Test
-  def check4by4BoardContaining2RooksAnd4Knight(): Unit = {
+  it("check 4X4 Board containing 2 Rooks and 4 Knights") {
     val solution = ChessSolution.solveChessProblem(ChessBoard(4, 4), List(PieceInfo(Rook, 2), PieceInfo(Knight, 4)))
-    assert(solution.size == 8)
-    assert(solution.mkString("\n") == "Knight*Knight*\n" +
+    val resultStr = "Knight*Knight*\n" +
       "***Rook\n" +
       "Knight*Knight*\n" +
       "*Rook**\n" +
@@ -73,6 +70,8 @@ class ChessSolutionTest {
       "Rook***\n" +
       "*Knight*Knight\n" +
       "**Rook*\n" +
-      "*Knight*Knight\n")
+      "*Knight*Knight\n"
+    assertResult(8)(solution.size)
+    assertResult(resultStr)(solution.mkString("\n"))
   }
 }
