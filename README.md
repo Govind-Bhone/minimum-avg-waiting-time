@@ -45,7 +45,7 @@ the better.
 
 ## Steps to Run 
  * go to <ROOT_PROJECT_DIR>/target/pack
- * Run `./bin/chessSolver` OR ``./bin/chessSolver -King 2 -Queen 1 -Rook 3`
+ * Run `./bin/chessSolver` OR `./bin/chessSolver -King 2 -Queen 1 -Rook 3`
  
 ## Running Evaluation 
 This program approx takes 6-20 s to complete 
