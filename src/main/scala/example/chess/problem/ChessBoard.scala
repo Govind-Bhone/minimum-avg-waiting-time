@@ -30,18 +30,18 @@ case class ChessBoard(board: Board, occupied: List[Position], occupiedSquare: Li
     addPiece(piece, Square(x, y))
 
   @tailrec
-  private def filterAvailableSquaresAfterfromSquareList(piece: Piece, square: Square, squares: List[Square], acc: List[Square]): List[Square] = {
+  private def filterAvailableSquaresAfterFromSquareList(piece: Piece, square: Square, squares: List[Square], acc: List[Square]): List[Square] = {
     squares match {
       case Nil => acc
-      case head :: tail => filterAvailableSquaresAfterfromSquareList(piece, square, squares.tail,
+      case head :: tail => filterAvailableSquaresAfterFromSquareList(piece, square, squares.tail,
         if (square < head && !piece.isVulnerable(head, board, occupiedSquare))
           head :: acc
         else acc)
     }
   }
 
-  def availableSquaresAfterfromSquareList(piece: Piece, square: Square) =
-    filterAvailableSquaresAfterfromSquareList(piece, square, availableSquares, List())
+  def availableSquaresAfterFromSquareList(piece: Piece, square: Square) =
+    filterAvailableSquaresAfterFromSquareList(piece, square, availableSquares, List())
 
   @tailrec
   private def filterAvailableSquaresFor(piece: Piece, squares: List[Square], acc: List[Square]): List[Square] = {

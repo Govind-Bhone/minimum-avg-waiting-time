@@ -24,17 +24,17 @@ object ChessSolution {
 
     def placePossiblePiecesOfSameKind(chess: ChessBoard, piece: Piece, count: Int) = {
       @tailrec
-      def loop(count: Int, acc: List[(ChessBoard, Square)]): List[ChessBoard] = {
+      def placeRemainingPiecesOfSameKind(count: Int, acc: List[(ChessBoard, Square)]): List[ChessBoard] = {
         count match {
           case 0 => acc.map(_._1)
-          case i if i > 0 => loop(i - 1,
+          case i if i > 0 => placeRemainingPiecesOfSameKind(i - 1,
             acc.foldLeft(List[(ChessBoard, Square)]()) {
               case (list, (chess, square)) =>
-                placePossiblePiece(chess, piece, list, chess.availableSquaresAfterfromSquareList(piece, square))
+                placePossiblePiece(chess, piece, list, chess.availableSquaresAfterFromSquareList(piece, square))
             })
         }
       }
-      loop(count - 1,
+      placeRemainingPiecesOfSameKind(count - 1,
         placePossiblePiece(chess, piece, List(), chess.availableSquaresFor(piece)))
     }
 
@@ -44,9 +44,18 @@ object ChessSolution {
   }
 
   def main(args: Array[String]): Unit = {
-    println("*********************[7×7 board ,2 Kings, 2 Queens, 2 Bishops and 1 Knight problem]***************")
+    println("*********************Chess Problem**************************************")
     val start = System.currentTimeMillis()
-    val solution = solveChessProblem(ChessBoard(7, 7), List(PieceInfo(King, 2), PieceInfo(Queen, 2), PieceInfo(Bishop, 2), PieceInfo(Knight, 1)))
+    println("Enter the no of rows of chessboard")
+    val x = readInt()
+    println("Enter the no of columns of chessboard")
+    val y =readInt()
+    val defaultArgs=List(PieceInfo(King, 2), PieceInfo(Queen, 2), PieceInfo(Bishop, 2), PieceInfo(Knight, 1))
+    val solution=if(args.length > 1){
+      solveChessProblem(ChessBoard(x, y),ArgumentParser(args))
+    }else {
+      solveChessProblem(ChessBoard(x, y),defaultArgs )
+    }
     val end = System.currentTimeMillis()
     val elapsed = Duration.create(end - start, TimeUnit.MILLISECONDS)
     println("Completed the execution successfully")
