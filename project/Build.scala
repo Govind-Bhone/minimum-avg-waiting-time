@@ -12,10 +12,10 @@ object Build extends Build {
     crossPaths := false
   )
 
-  val shellScripts =Map("chessSolver"->"example.chess.problem.ChessSolution")
+  val shellScripts =Map("minAvgWaitingTimeCalculator"->"riskident.coding.challenge.Solution")
 
   lazy val root = Project(
-    id = "chess-challenge",
+    id = "minimum-average-waiting-time",
     base = file("."),
     settings = commonSettings ++ packAutoSettings ++
       Seq(
