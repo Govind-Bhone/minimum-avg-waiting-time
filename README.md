@@ -1,4 +1,4 @@
-# Minimum Average waiting time 
+# CreditRisk GmBH -Minimum Average waiting time 
 
 Table of contents
 =================
